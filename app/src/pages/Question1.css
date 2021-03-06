@@ -139,6 +139,7 @@ h1 {
   width: 100%;
   grid-template-columns: 1fr 1fr 1fr;
   row-gap: 1rem;
+  padding-bottom: 2rem;
 }
 
 .emoji-rows > .emoji-btn {
