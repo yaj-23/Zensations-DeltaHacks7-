@@ -14,6 +14,27 @@ import { useHistory } from "react-router";
 const ClientState: React.FC = () => {
   const history = useHistory();
 
+  const tempArray = [1,2,3,4]
+
+  const getData = async () => {
+    const data = await fetch('http://localhost:4000/api/quiz', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        values: [1,2,3,4]
+      }),
+    }).then((res) => res.json())
+    
+    console.log(data);
+
+  };
+
+
+
+
+
   return (
     <IonPage>
 
@@ -41,7 +62,7 @@ const ClientState: React.FC = () => {
 
 
           <div className='dash-btns'>
-            <img  className='dash-button-background' src={continueBtn} alt="continueBtn" onClick={()=> console.log("MOVE ME TO NEXT Exercise PAGE")} />
+            <img  className='dash-button-background' src={continueBtn} alt="continueBtn" onClick={()=> getData()} />
           </div>
          
           <img className="lotus" src={lotus} alt="lotus" onClick={()=> history.replace('/home')} />
