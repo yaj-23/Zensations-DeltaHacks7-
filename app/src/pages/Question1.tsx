@@ -31,6 +31,7 @@ import dashboard from "../logos/dashboard.svg";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import Typist from "react-typist";
 
+
 const Question1: React.FC = () => {
   const history = useHistory();
   const [count, setCount] = useState(0);
@@ -161,8 +162,8 @@ const Question1: React.FC = () => {
             <div className="app-slogan-header">release your emotions</div>
           </div>
         </div>
-        <Typist className="question-title">{questions[count]}</Typist>
-        <div>{questions[count]}</div>
+        <Typist key={count} className="question-title">{questions[count]}</Typist>
+        {/**<div className="question-title">{questions[count]}</div>*/}
 
         {emojiDisplay}
         {nextButton}
