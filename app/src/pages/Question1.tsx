@@ -22,6 +22,7 @@ import three from "../logos/three.svg";
 import two from "../logos/two.svg";
 import "./Question1.css";
 
+
 const Question1: React.FC = () => {
   const history = useHistory();
   const [count, setCount] = useState(0);
@@ -152,9 +153,8 @@ const Question1: React.FC = () => {
             <div className="app-slogan-header">release your emotions</div>
           </div>
         </div>
-        <Typist key={count} className="question-title">
-          {questions[count]}
-        </Typist>
+        <Typist key={count} className="question-title">{questions[count]}</Typist>
+        {/**<div className="question-title">{questions[count]}</div>*/}
 
         {emojiDisplay}
         {nextButton}
