@@ -53,7 +53,7 @@
   font-family: "Jua", sans-serif;
   font-size: 2rem;
 }
-.question-title {
+.dash-title {
   margin-top: 50px;
   color: black;
   font-family: "Open Sans", sans-serif;
@@ -61,11 +61,10 @@
   font-weight: 400;
 }
 .emoji-icon-row1 {
-  justify-content: space-evenly;
-  margin-top: 0px;
+  margin-top: -50px;
 }
 .emoji-icon-row2 {
-  padding-top: 100px;
+  margin-top: -60px;
 }
 .emoji-btn {
   padding-right: 20px;
@@ -85,13 +84,13 @@
   margin-top: -15px;
   padding-bottom: 1rem;
 }
-.next-button-background {
+.dash-button-background {
   margin-top: -50px;
   transform: scale(1);
   transition: all 0.3s ease-in-out;
 }
 
-.button-background:hover {
+.dash-button-background:hover {
   transform: scale(1.1);
   transition: all 0.3s ease-in-out;
 }
