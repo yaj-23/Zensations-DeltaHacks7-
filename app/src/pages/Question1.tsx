@@ -1,40 +1,31 @@
-import {
-  IonContent,
-  IonHeader,
-  IonRadio,
-  IonRadioGroup,
-  IonPage,
-  IonTitle,
-  IonToolbar,
-} from "@ionic/react";
-import "./Question1.css";
-import confused from "../logos/confused.svg";
-import board from "../logos/board.svg";
-import one from "../logos/one.svg";
-import two from "../logos/two.svg";
-import three from "../logos/three.svg";
-import four from "../logos/four.svg";
-import five from "../logos/five.svg";
-import six from "../logos/six.svg";
-import lotus from "../logos/lotus.svg";
-import icon from "../logos/frameIcon.svg";
-import nextBtn from "../logos/nextButton.svg";
-import sad from "../logos/sad.svg";
-import crying from "../logos/crying.svg";
-import irritated from "../logos/irritated.svg";
-import angry from "../logos/angry.svg";
-import happy from "../logos/sad.svg";
-import lovely from "../logos/lovely.svg";
+import { IonPage } from "@ionic/react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
-import React, { useState, useEffect } from "react";
-import dashboard from "../logos/dashboard.svg";
-import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import Typist from "react-typist";
+import { useQuiz } from "../components/QuizProvider";
+import angry from "../logos/angry.svg";
+import board from "../logos/board.svg";
+import confused from "../logos/confused.svg";
+import crying from "../logos/crying.svg";
+import dashboard from "../logos/dashboard.svg";
+import five from "../logos/five.svg";
+import four from "../logos/four.svg";
+import icon from "../logos/frameIcon.svg";
+import irritated from "../logos/irritated.svg";
+import lotus from "../logos/lotus.svg";
+import lovely from "../logos/lovely.svg";
+import nextBtn from "../logos/nextButton.svg";
+import one from "../logos/one.svg";
+import { default as happy, default as sad } from "../logos/sad.svg";
+import six from "../logos/six.svg";
+import three from "../logos/three.svg";
+import two from "../logos/two.svg";
+import "./Question1.css";
 
 const Question1: React.FC = () => {
   const history = useHistory();
   const [count, setCount] = useState(0);
-  const [result, setResult] = useState<number[]>([]);
+  const { result, setResult } = useQuiz();
   const [add, setAdd] = useState(-1);
 
   const renderTime = ({ remainingTime }: { remainingTime: number }) => {
@@ -52,7 +43,7 @@ const Question1: React.FC = () => {
   const addHandler = (newVal: number) => setAdd((a) => (a === -1 ? newVal : a));
 
   useEffect(() => {
-    if (add !== -1) setResult((res) => [...res, add]);
+    if (add !== -1) setResult((res: number[]) => [...res, add]);
   }, [add]);
 
   const questions: String[] = [
