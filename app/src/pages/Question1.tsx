@@ -44,8 +44,8 @@ const Question1: React.FC = () => {
   const questions: String[] = [
     "how do you feel today?",
     "how stressed have you been lately",
-    "describe your day with one emoji:",
-    "how healthy do you feel?",
+    "descrive your day with one emoji:",
+    "how healthy are you?",
   ];
 
   // Display the dashboard once you have all the information filled out
