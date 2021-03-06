@@ -21,7 +21,6 @@ import learnmoreBtn from "../logos/learnMore_Btn.svg";
 const Home: React.FC = () => {
   return (
     <IonPage>
-      <div className="mainScreen">
       
         <div className="mainScreen">
           
@@ -43,7 +42,7 @@ const Home: React.FC = () => {
          
 
         </div>
-      </div>
+      
     </IonPage>
   );
 };

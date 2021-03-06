@@ -11,7 +11,15 @@
   height: 100%;
   width: 100%;
 }
-
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 95%;
+  height: auto;
+  color: black;
+}
 .header {
   display: flex;
   flex-direction: row;
@@ -28,4 +36,15 @@
 
 .green-background {
   width: 25%;
+}
+.app-title {
+  font-family: "Jua", sans-serif;
+  font-size: 2rem;
+}
+
+.app-slogan {
+  font-family: "Comic Neue", cursive;
+  font-size: 1rem;
+  margin-top: -15px;
+  padding-bottom: 1rem;
 }
