@@ -4,7 +4,7 @@ const QuizContext = createContext(null as any);
 
 export const useQuiz = () => useContext(QuizContext);
 
-export const QuizProvider: React.FC = () => {
+export const QuizProvider: React.FC = ({children}) => {
   const [result, setResult] = useState<number[]>([]);
 
 
@@ -21,5 +21,5 @@ export const QuizProvider: React.FC = () => {
   
   const value = { result, setResult, getData }
 
-  return <QuizContext.Provider value={value}></QuizContext.Provider>;
+  return <QuizContext.Provider value={value}>{children}</QuizContext.Provider>;
 };
