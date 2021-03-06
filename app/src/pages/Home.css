@@ -30,12 +30,16 @@
 .green-background {
   width: 30%;
 }
-.btns {
-  margin-top: 1em;
+
+.button-background {
   width: 35%;
+}
+
+.btns {
   display: flex;
   flex-direction: column;
-}
-.getStartedbtn {
-  justify-content: right;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+  height: auto;
 }
