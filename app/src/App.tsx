@@ -30,6 +30,9 @@ const App: React.FC = () => (
         <Route exact path="/home">
           <Home />
         </Route>
+        <Route exact path="/home/Question1">
+          <Question1 />
+        </Route>
         <Route exact path="/">
           <Redirect to="/home" />
         </Route>

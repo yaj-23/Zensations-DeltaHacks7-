@@ -17,8 +17,11 @@ import lotus from "../logos/lotus.svg";
 import icon from "../logos/frameIcon.svg";
 import getStartedBtn from "../logos/getStarted_Btn.svg";
 import learnmoreBtn from "../logos/learnMore_Btn.svg";
+import { useHistory } from "react-router";
 
 const Home: React.FC = () => {
+  const history = useHistory();
+
   return (
     <IonPage>
       
@@ -36,7 +39,7 @@ const Home: React.FC = () => {
           </div>
           <img src={lotus} alt="lotus" />
           <div className='btns'>
-            <img  className='button-background' src={getStartedBtn} alt="getStartedBtn" onClick={()=> console.log("MOVE ME TO NEXT SCREEN PAGE")} />
+            <img  className='button-background' src={getStartedBtn} alt="getStartedBtn" onClick={()=> history.replace('/home/Question1')} />
             <img className='button-background' src={learnmoreBtn} alt="learnmoreBtn" onClick={()=> console.log("MOVE ME TO DEVPOST PAGE")} />
           </div>
          
