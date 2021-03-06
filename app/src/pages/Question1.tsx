@@ -9,8 +9,10 @@ import irritated from '../logos/irritated.svg';
 import angry from '../logos/angry.svg';
 import happy from '../logos/sad.svg';
 import lovely from '../logos/lovely.svg';
-
+import { useHistory } from "react-router";
 const Question1: React.FC = () => {
+  const history = useHistory();
+
   return (
     <IonPage>
 
@@ -51,7 +53,7 @@ const Question1: React.FC = () => {
             <img  className='next-button-background' src={nextBtn} alt="nextBtn" onClick={()=> console.log("MOVE ME TO NEXT Question PAGE")} />
           </div>
          
-          <img className="lotus" src={lotus} alt="lotus" />
+          <img className="lotus" src={lotus} alt="lotus" onClick={()=> history.replace('/home')} />
           
         </div>
      
