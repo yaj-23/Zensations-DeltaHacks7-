@@ -157,7 +157,6 @@ const Question1: React.FC = () => {
         <Typist key={count} className="question-title">
           {questions[count]}
         </Typist>
-        {/**<div className="question-title">{questions[count]}</div>*/}
 
         {emojiDisplay}
         {nextButton}
