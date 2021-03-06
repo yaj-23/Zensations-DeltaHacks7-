@@ -36,9 +36,9 @@ const Question1: React.FC = () => {
   const [result, setResult] = useState<number[]>([]);
   const [add, setAdd] = useState(-1);
 
-  const renderTime = ({ remainingTime }) => {
+  const renderTime = ({ remainingTime }: { remainingTime: number }) => {
     if (remainingTime === 0) {
-      return <div className="timer">Too lale...</div>;
+      return <div className="timer">Too late...</div>;
     }
 
     return (
@@ -48,7 +48,7 @@ const Question1: React.FC = () => {
     );
   };
 
-  const addHandler = (newVal) => setAdd((a) => (a === -1 ? newVal : a));
+  const addHandler = (newVal: number) => setAdd((a) => (a === -1 ? newVal : a));
 
   useEffect(() => {
     if (add !== -1) setResult((res) => [...res, add]);
@@ -57,7 +57,7 @@ const Question1: React.FC = () => {
   const questions: String[] = [
     "how do you feel today?",
     "how stressed have you been lately",
-    "descrive your day with one emoji:",
+    "describe your day with one emoji:",
     "how healthy are you?",
   ];
 
@@ -99,48 +99,18 @@ const Question1: React.FC = () => {
   let emojiDisplay;
   if (count == 0) {
     emojiDisplay = (
-      <div>
-        <div className="emoji-icon-row1">
-          <img
-            className="emoji-btn"
-            src={sad}
-            alt="nextBtn"
-            onClick={() => addHandler(1)}
-          />
-          <img
-            className="emoji-btn"
-            src={crying}
-            alt="nextBtn"
-            onClick={() => addHandler(0)}
-          />
-          <img
-            className="emoji-btn"
-            src={irritated}
-            alt="nextBtn"
-            onClick={() => addHandler(2)}
-          />
-        </div>
-
-        <div className="emoji-icon-row2">
-          <img
-            className="emoji-btn"
-            src={angry}
-            alt="nextBtn"
-            onClick={() => addHandler(3)}
-          />
-          <img
-            className="emoji-btn"
-            src={happy}
-            alt="nextBtn"
-            onClick={() => addHandler(4)}
-          />
-          <img
-            className="emoji-btn"
-            src={lovely}
-            alt="nextBtn"
-            onClick={() => addHandler(5)}
-          />
-        </div>
+      <div className="emoji-rows">
+        {[sad, crying, irritated, angry, happy, lovely].map(
+          (emoji: any, index: number) => (
+            <img
+              className="emoji-btn"
+              key={index}
+              src={emoji}
+              alt="nextBtn"
+              onClick={() => addHandler(index)}
+            />
+          )
+        )}
       </div>
     );
   } else if (count == 2) {
@@ -233,7 +203,7 @@ const Question1: React.FC = () => {
 
   return (
     <IonPage>
-      <div className="mainScreen">
+      <div className="mainScreen questions-page">
         <div className="header">
           <div className="appicon">
             <img className="green-background" src={icon} />
