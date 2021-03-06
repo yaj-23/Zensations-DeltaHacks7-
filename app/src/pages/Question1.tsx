@@ -123,7 +123,7 @@ const Question1: React.FC = () => {
               key={index}
               src={emoji}
               alt="nextBtn"
-              onClick={() => addHandler(index)}
+              onClick={() => addHandler(index === 2 ? 6 : index === 5 ? 7 : index)}
             />
           )
         )}
