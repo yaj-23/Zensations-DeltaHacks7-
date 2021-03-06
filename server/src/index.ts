@@ -1,9 +1,8 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import { PORT, COCKROACH_CONFIG } from "./config/constants";
+import { PORT } from "./config/constants";
 import { quizRouter } from "./routes";
-import { Pool } from "pg";
 
 dotenv.config();
 
@@ -23,12 +22,3 @@ app.get("/", (req: Request, res: Response) => {
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
-
-// const pool = new Pool(COCKROACH_CONFIG);
-
-(async () => {
-  //   const client = await pool.connect();
-
-  // Exit program
-  process.exit();
-})().catch((err) => console.log(err.stack));
