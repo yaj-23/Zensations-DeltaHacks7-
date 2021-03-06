@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Comic+Neue&family=Jua&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap");
 
 .mainScreen {
   background-color: whitesmoke;
@@ -21,9 +22,11 @@
   color: black;
 }
 .header {
+  margin-top: -100px;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  width: 100%;
+  justify-content: space-between;
 }
 .icon {
   background-color: whitesmoke;
@@ -37,12 +40,20 @@
 .green-background {
   width: 25%;
 }
+
+.lotus {
+  justify-content: center;
+  width: 10%;
+}
 .app-title {
+  padding-right: 5px;
   font-family: "Jua", sans-serif;
   font-size: 2rem;
 }
 
 .app-slogan {
+  padding-top: 5px;
+  padding-right: 5px;
   font-family: "Comic Neue", cursive;
   font-size: 1rem;
   margin-top: -15px;
