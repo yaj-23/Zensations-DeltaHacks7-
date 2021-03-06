@@ -18,8 +18,8 @@ const Home: React.FC = () => {
           </div>
 
           <div className="title">
-            <div>Zensation</div>
-            <div>release your emotions</div>
+            <div className="app-title">Zensation</div>
+            <div className="app-slogan">release your emotions</div>
             
           </div>
           <img src={lotus} alt="lotus" />

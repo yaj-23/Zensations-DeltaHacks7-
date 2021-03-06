@@ -1,8 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue&family=Jua&display=swap");
+
 .mainScreen {
   background-color: whitesmoke;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   justify-self: center;
   align-items: center;
   height: 100%;
@@ -16,6 +19,7 @@
   align-items: flex-end;
   width: 95%;
   height: auto;
+  color: black;
 }
 
 .icon {
@@ -31,7 +35,22 @@
   width: 30%;
 }
 
+.app-title {
+  padding-right: 1rem;
+  font-family: "Jua", sans-serif;
+  font-size: 5rem;
+}
+
+.app-slogan {
+  font-family: "Comic Neue", cursive;
+  font-size: 1rem;
+  padding-right: 1rem;
+  margin-top: -15px;
+  padding-bottom: 1rem;
+}
+
 .button-background {
+  margin-top: 1rem;
   width: 35%;
 }
 
