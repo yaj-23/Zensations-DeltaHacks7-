@@ -123,7 +123,9 @@ const Question1: React.FC = () => {
               key={index}
               src={emoji}
               alt="nextBtn"
-              onClick={() => addHandler(index === 2 ? 6 : index === 5 ? 7 : index)}
+              onClick={() =>
+                addHandler(index === 2 ? 6 : index === 5 ? 7 : index)
+              }
             />
           )
         )}
@@ -162,27 +164,18 @@ const Question1: React.FC = () => {
         <div className="question-title">{questions[count]}</div>
 
         {emojiDisplay}
-        <div className="timer-wrapper">
-          <CountdownCircleTimer
-            isPlaying
-            duration={10}
-            colors={[
-              ["#004777", 0.33],
-              ["#F7B801", 0.33],
-              ["#A30000", 0.33],
-            ]}
-            onComplete={() => [true, 1000]}
-          >
-            {renderTime}
-          </CountdownCircleTimer>
-        </div>
         {nextButton}
 
         <img
           className="lotus"
           src={lotus}
           alt="lotus"
-          onClick={() => history.replace("/home")}
+          onClick={() => {
+            setCount(0);
+            setAdd(-1);
+            setResult([]);
+            history.replace("/home");
+          }}
         />
       </div>
     </IonPage>

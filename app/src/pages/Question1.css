@@ -56,9 +56,11 @@
 .question-title {
   margin-top: 50px;
   color: black;
+  width: 70%;
   font-family: "Open Sans", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 400;
+  text-align: center;
 }
 .emoji-icon-row1 {
   justify-content: space-evenly;
@@ -132,7 +134,6 @@ h1 {
   font-size: 40px;
 }
 
-
 .emoji-rows {
   display: grid;
   width: 100%;
@@ -140,7 +141,7 @@ h1 {
   row-gap: 1rem;
 }
 
-.emoji-rows>.emoji-btn {
+.emoji-rows > .emoji-btn {
   display: flex;
   align-items: center;
   justify-content: center;
