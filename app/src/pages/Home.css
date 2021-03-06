@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Comic+Neue&family=Jua&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap");
 .mainScreen {
   background-color: whitesmoke;
   display: flex;
@@ -55,6 +55,7 @@
 }
 
 .btns {
+  font-family: "Open Sans", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
