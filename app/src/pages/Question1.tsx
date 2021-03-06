@@ -16,12 +16,12 @@ import lotus from "../logos/lotus.svg";
 import lovely from "../logos/lovely.svg";
 import nextBtn from "../logos/nextButton.svg";
 import one from "../logos/one.svg";
-import { default as happy, default as sad } from "../logos/sad.svg";
+import happy from "../logos/happy.svg";
+import sad from "../logos/sad.svg";
 import six from "../logos/six.svg";
 import three from "../logos/three.svg";
 import two from "../logos/two.svg";
 import "./Question1.css";
-
 
 const Question1: React.FC = () => {
   const history = useHistory();
@@ -153,7 +153,9 @@ const Question1: React.FC = () => {
             <div className="app-slogan-header">release your emotions</div>
           </div>
         </div>
-        <Typist key={count} className="question-title">{questions[count]}</Typist>
+        <Typist key={count} className="question-title">
+          {questions[count]}
+        </Typist>
         {/**<div className="question-title">{questions[count]}</div>*/}
 
         {emojiDisplay}

@@ -57,10 +57,13 @@
   margin-top: 50px;
   color: black;
   width: 70%;
+  height: 13%;
   font-family: "Open Sans", sans-serif;
   font-size: 1.75rem;
   font-weight: 400;
   text-align: center;
+  justify-content: center;
+  align-self: center;
 }
 .emoji-icon-row1 {
   justify-content: space-evenly;
