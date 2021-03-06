@@ -52,6 +52,8 @@
 .button-background {
   margin-top: 1rem;
   width: 35%;
+  transform: scale(1);
+  transition: all 0.3s ease-in-out;
 }
 
 .btns {
@@ -61,4 +63,8 @@
   align-items: flex-end;
   width: 100%;
   height: auto;
+}
+.btns :hover {
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
 }
