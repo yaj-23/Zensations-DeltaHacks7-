@@ -24,8 +24,8 @@ const Home: React.FC = () => {
           </div>
           <img src={lotus} alt="lotus" />
           <div className='btns'>
-            <img className='button-background' src={getStartedBtn} alt="getStartedBtn" />
-            <img className='button-background' src={learnmoreBtn} alt="learnmoreBtn" />
+            <img  className='button-background' src={getStartedBtn} alt="getStartedBtn" onClick={()=> console.log("MOVE ME TO NEXT PAGE")} />
+            <img className='button-background' src={learnmoreBtn} alt="learnmoreBtn" onClick={()=> console.log("MOVE ME TO NEXT PAGE")} />
           </div>
          
 
