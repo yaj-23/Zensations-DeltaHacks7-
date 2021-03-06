@@ -161,8 +161,9 @@ const Question1: React.FC = () => {
             <div className="app-slogan-header">release your emotions</div>
           </div>
         </div>
-        <Typist className="question-title">{questions[count]}</Typist>
-        <div>{questions[count]}</div>
+        <Typist key={count} className="question-title">
+          {questions[count]}
+        </Typist>
 
         {emojiDisplay}
         {nextButton}
