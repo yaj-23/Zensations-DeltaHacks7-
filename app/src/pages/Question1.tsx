@@ -80,7 +80,8 @@ const Question1: React.FC = () => {
           alt="nextBtn"
           onClick={() => {
             {
-              console.log(result);
+              setAdd(-1);
+              setCount(0);
               history.push("/home/ClientState");
             }
           }}
