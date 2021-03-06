@@ -111,11 +111,12 @@ h1 {
 .timer-wrapper {
   display: flex;
   justify-content: center;
+
   transform: scale(0.5);
 }
 
 .timer {
-  font-family: "Montserrat";
+  font-family: "Jua", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
