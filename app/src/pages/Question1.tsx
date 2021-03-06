@@ -29,6 +29,7 @@ import { useHistory } from "react-router";
 import React, { useState, useEffect } from "react";
 import dashboard from "../logos/dashboard.svg";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
+import Typist from "react-typist";
 
 const Question1: React.FC = () => {
   const history = useHistory();
@@ -115,88 +116,34 @@ const Question1: React.FC = () => {
     );
   } else if (count == 2) {
     emojiDisplay = (
-      <div>
-        <div className="emoji-icon-row1">
-          <img
-            className="emoji-btn"
-            src={sad}
-            alt="nextBtn"
-            onClick={() => addHandler(1)}
-          />
-          <img
-            className="emoji-btn"
-            src={crying}
-            alt="nextBtn"
-            onClick={() => addHandler(0)}
-          />
-          <img
-            className="emoji-btn"
-            src={confused}
-            alt="nextBtn"
-            onClick={() => addHandler(6)}
-          />
-        </div>
-
-        <div className="emoji-icon-row2">
-          <img
-            className="emoji-btn"
-            src={angry}
-            alt="nextBtn"
-            onClick={() => addHandler(3)}
-          />
-          <img
-            className="emoji-btn"
-            src={happy}
-            alt="nextBtn"
-            onClick={() => addHandler(4)}
-          />
-          <img
-            className="emoji-btn"
-            src={board}
-            alt="nextBtn"
-            onClick={() => addHandler(7)}
-          />
-        </div>
+      <div className="emoji-rows">
+        {[sad, crying, confused, angry, happy, board].map(
+          (emoji: any, index: number) => (
+            <img
+              className="emoji-btn"
+              key={index}
+              src={emoji}
+              alt="nextBtn"
+              onClick={() =>
+                addHandler(index === 2 ? 6 : index === 5 ? 7 : index)
+              }
+            />
+          )
+        )}
       </div>
     );
   } else {
     emojiDisplay = (
-      <div>
-        <div className="emoji-icon-row1">
+      <div className="emoji-rows">
+        {[one, two, three, four, five, six].map((emoji: any, index: number) => (
           <img
             className="emoji-btn"
-            src={one}
+            key={index}
+            src={emoji}
             alt="nextBtn"
-            onClick={() => addHandler(1)}
+            onClick={() => addHandler(index + 1)}
           />
-          <img
-            className="emoji-btn"
-            src={two}
-            alt="nextBtn"
-            onClick={() => addHandler(2)}
-          />
-          <img
-            className="emoji-btn"
-            src={three}
-            alt="nextBtn"
-            onClick={() => addHandler(3)}
-          />
-        </div>
-
-        <div className="emoji-icon-row2">
-          <img
-            className="emoji-btn"
-            src={four}
-            alt="nextBtn"
-            onClick={() => addHandler(4)}
-          />
-          <img
-            className="emoji-btn"
-            src={five}
-            alt="nextBtn"
-            onClick={() => addHandler(5)}
-          />
-        </div>
+        ))}
       </div>
     );
   }
@@ -214,31 +161,22 @@ const Question1: React.FC = () => {
             <div className="app-slogan-header">release your emotions</div>
           </div>
         </div>
-
-        <div className="question-title">{questions[count]}</div>
+        <Typist className="question-title">{questions[count]}</Typist>
+        <div>{questions[count]}</div>
 
         {emojiDisplay}
-        <div className="timer-wrapper">
-          <CountdownCircleTimer
-            isPlaying
-            duration={10}
-            colors={[
-              ["#004777", 0.33],
-              ["#F7B801", 0.33],
-              ["#A30000", 0.33],
-            ]}
-            onComplete={() => [true, 1000]}
-          >
-            {renderTime}
-          </CountdownCircleTimer>
-        </div>
         {nextButton}
 
         <img
           className="lotus"
           src={lotus}
           alt="lotus"
-          onClick={() => history.replace("/home")}
+          onClick={() => {
+            setCount(0);
+            setAdd(-1);
+            setResult([]);
+            history.replace("/home");
+          }}
         />
       </div>
     </IonPage>
