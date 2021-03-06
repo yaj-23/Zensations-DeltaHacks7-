@@ -43,9 +43,7 @@ const Question1: React.FC = () => {
 
     return (
       <div className="timer">
-        <div className="text">Remaining</div>
         <div className="value">{remainingTime}</div>
-        <div className="text">seconds</div>
       </div>
     );
   };
@@ -253,8 +251,12 @@ const Question1: React.FC = () => {
         <div className="timer-wrapper">
           <CountdownCircleTimer
             isPlaying
-            duration={5}
-            colors={"#444444"}
+            duration={10}
+            colors={[
+              ["#004777", 0.33],
+              ["#F7B801", 0.33],
+              ["#A30000", 0.33],
+            ]}
             onComplete={() => [true, 1000]}
           >
             {renderTime}

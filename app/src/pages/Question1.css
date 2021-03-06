@@ -111,11 +111,11 @@ h1 {
 .timer-wrapper {
   display: flex;
   justify-content: center;
+  transform: scale(0.5);
 }
 
 .timer {
   font-family: "Montserrat";
-  scale: (1);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -127,11 +127,4 @@ h1 {
 
 .value {
   font-size: 40px;
-}
-
-.info {
-  max-width: 360px;
-  margin: 40px auto 0;
-  text-align: center;
-  font-size: 16px;
 }
