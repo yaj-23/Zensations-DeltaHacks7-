@@ -8,6 +8,8 @@ import {
   IonToolbar,
 } from "@ionic/react";
 import "./Question1.css";
+import confused from "../logos/confused.svg";
+import board from "../logos/board.svg";
 import one from "../logos/one.svg";
 import two from "../logos/two.svg";
 import three from "../logos/three.svg";
@@ -24,18 +26,26 @@ import angry from "../logos/angry.svg";
 import happy from "../logos/sad.svg";
 import lovely from "../logos/lovely.svg";
 import { useHistory } from "react-router";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import dashboard from "../logos/dashboard.svg";
 
 const Question1: React.FC = () => {
   const history = useHistory();
   const [count, setCount] = useState(0);
+  const [result, setResult] = useState<number[]>([]);
+  const [add, setAdd] = useState(-1);
+
+  const addHandler = (newVal) => setAdd((a) => (a === -1 ? newVal : a));
+
+  useEffect(() => {
+    if (add !== -1) setResult((res) => [...res, add]);
+  }, [add]);
 
   const questions: String[] = [
     "how do you feel today?",
     "how stressed have you been lately",
-    "descrive your day with one emoji:",
-    "how anxious do you feel?",
+    "describe your day with one emoji:",
+    "how healthy do you feel?",
   ];
 
   // Display the dashboard once you have all the information filled out
@@ -48,7 +58,9 @@ const Question1: React.FC = () => {
           src={nextBtn}
           alt="nextBtn"
           onClick={() => {
+            setAdd(-1);
             setCount(count + 1);
+            console.log(result);
           }}
         />
       </div>
@@ -61,7 +73,10 @@ const Question1: React.FC = () => {
           src={dashboard}
           alt="nextBtn"
           onClick={() => {
-            history.replace("/home/ClientState");
+            {
+              console.log(result);
+              history.push("/home/ClientState");
+            }
           }}
         />
       </div>
@@ -77,19 +92,19 @@ const Question1: React.FC = () => {
             className="emoji-btn"
             src={sad}
             alt="nextBtn"
-            onClick={() => console.log("You are sad")}
+            onClick={() => addHandler(1)}
           />
           <img
             className="emoji-btn"
             src={crying}
             alt="nextBtn"
-            onClick={() => console.log("You are crying")}
+            onClick={() => addHandler(0)}
           />
           <img
             className="emoji-btn"
             src={irritated}
             alt="nextBtn"
-            onClick={() => console.log("You are irritated")}
+            onClick={() => addHandler(2)}
           />
         </div>
 
@@ -98,19 +113,19 @@ const Question1: React.FC = () => {
             className="emoji-btn"
             src={angry}
             alt="nextBtn"
-            onClick={() => console.log("You are angry")}
+            onClick={() => addHandler(3)}
           />
           <img
             className="emoji-btn"
             src={happy}
             alt="nextBtn"
-            onClick={() => console.log("You are happy")}
+            onClick={() => addHandler(4)}
           />
           <img
             className="emoji-btn"
             src={lovely}
             alt="nextBtn"
-            onClick={() => console.log("You are feeling lovely")}
+            onClick={() => addHandler(5)}
           />
         </div>
       </div>
@@ -123,19 +138,19 @@ const Question1: React.FC = () => {
             className="emoji-btn"
             src={sad}
             alt="nextBtn"
-            onClick={() => console.log("You are sad")}
+            onClick={() => addHandler(1)}
           />
           <img
             className="emoji-btn"
             src={crying}
             alt="nextBtn"
-            onClick={() => console.log("You are crying")}
+            onClick={() => addHandler(0)}
           />
           <img
             className="emoji-btn"
-            src={irritated}
+            src={confused}
             alt="nextBtn"
-            onClick={() => console.log("You are irritated")}
+            onClick={() => addHandler(6)}
           />
         </div>
 
@@ -144,19 +159,19 @@ const Question1: React.FC = () => {
             className="emoji-btn"
             src={angry}
             alt="nextBtn"
-            onClick={() => console.log("You are angry")}
+            onClick={() => addHandler(3)}
           />
           <img
             className="emoji-btn"
             src={happy}
             alt="nextBtn"
-            onClick={() => console.log("You are happy")}
+            onClick={() => addHandler(4)}
           />
           <img
             className="emoji-btn"
-            src={lovely}
+            src={board}
             alt="nextBtn"
-            onClick={() => console.log("You are feeling lovely")}
+            onClick={() => addHandler(7)}
           />
         </div>
       </div>
@@ -169,19 +184,19 @@ const Question1: React.FC = () => {
             className="emoji-btn"
             src={one}
             alt="nextBtn"
-            onClick={() => console.log("You are sad")}
+            onClick={() => addHandler(1)}
           />
           <img
             className="emoji-btn"
             src={two}
             alt="nextBtn"
-            onClick={() => console.log("You are crying")}
+            onClick={() => addHandler(2)}
           />
           <img
             className="emoji-btn"
             src={three}
             alt="nextBtn"
-            onClick={() => console.log("You are irritated")}
+            onClick={() => addHandler(3)}
           />
         </div>
 
@@ -190,19 +205,19 @@ const Question1: React.FC = () => {
             className="emoji-btn"
             src={four}
             alt="nextBtn"
-            onClick={() => console.log("You are angry")}
+            onClick={() => addHandler(4)}
           />
           <img
             className="emoji-btn"
             src={five}
             alt="nextBtn"
-            onClick={() => console.log("You are happy")}
+            onClick={() => addHandler(5)}
           />
           <img
             className="emoji-btn"
             src={six}
             alt="nextBtn"
-            onClick={() => console.log("You are feeling lovely")}
+            onClick={() => addHandler(6)}
           />
         </div>
       </div>
