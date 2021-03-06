@@ -19,6 +19,7 @@ import { QuizProvider } from "./components/QuizProvider";
 import ClientState from "./pages/ClientState";
 import Home from "./pages/Home";
 import Question1 from "./pages/Question1";
+import ExercisePage from "./pages/ExercisePage";
 /* Theme variables */
 import "./theme/variables.css";
 
@@ -36,6 +37,11 @@ const App: React.FC = () => (
           <Route exact path="/home/ClientState">
             <ClientState />
           </Route>
+
+          <Route exact path="/home/ExercisePage">
+            <ExercisePage />
+          </Route>
+          
           <Route exact path="/">
             <Redirect to="/home" />
           </Route>
