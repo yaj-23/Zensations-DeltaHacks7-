@@ -29,6 +29,7 @@ import { useHistory } from "react-router";
 import React, { useState, useEffect } from "react";
 import dashboard from "../logos/dashboard.svg";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
+import Typist from "react-typist";
 
 const Question1: React.FC = () => {
   const history = useHistory();
@@ -160,8 +161,8 @@ const Question1: React.FC = () => {
             <div className="app-slogan-header">release your emotions</div>
           </div>
         </div>
-
-        <div className="question-title">{questions[count]}</div>
+        <Typist className="question-title">{questions[count]}</Typist>
+        <div>{questions[count]}</div>
 
         {emojiDisplay}
         {nextButton}
