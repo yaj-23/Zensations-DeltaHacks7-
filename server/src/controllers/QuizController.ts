@@ -73,14 +73,6 @@ export class QuizController {
 
     const maxValue = this.happy + this.sad + this.angry;
 
-    //const calcMax = Math.max(this.happy, this.sad, this.angry);
-
-    // const delta = Math.max(this.happy, this.sad, this.angry) - calcMin;
-
-    // this.happy = ((this.happy - calcMin) / delta) * 100;
-    // this.sad = ((this.sad - calcMin) / delta) * 100;
-    // this.angry = ((this.angry - calcMin) / delta) * 100;
-
     this.happy = round((this.happy / maxValue) * 100);
     this.sad = round((this.sad / maxValue) * 100);
     this.angry = round((this.angry / maxValue) * 100);

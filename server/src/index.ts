@@ -2,7 +2,7 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { PORT } from "./config/constants";
-import { quizRouter } from "./routes";
+import { router } from "./routes";
 
 dotenv.config();
 
@@ -13,7 +13,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/quiz", quizRouter);
+app.use("/api", router);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("IF YOU SEE THIS, THE SERVER IS WORKING");
