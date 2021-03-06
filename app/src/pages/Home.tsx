@@ -5,6 +5,13 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import "./Home.css";
 import lotus from "../logos/lotus.svg";
 import icon from "../logos/frameIcon.svg";
@@ -15,11 +22,7 @@ const Home: React.FC = () => {
   return (
     <IonPage>
       <div className="mainScreen">
-        <div className="icon">
-          <img className="green-background" src={icon} />
-        </div>
-
-        
+      
         <div className="mainScreen">
           
 

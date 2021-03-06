@@ -17,3 +17,15 @@
   flex-direction: row;
   justify-content: space-evenly;
 }
+.icon {
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  width: 100%;
+  align-self: top;
+}
+
+.green-background {
+  width: 25%;
+}
