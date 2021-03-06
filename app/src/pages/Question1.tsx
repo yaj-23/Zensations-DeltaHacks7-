@@ -28,12 +28,27 @@ import lovely from "../logos/lovely.svg";
 import { useHistory } from "react-router";
 import React, { useState, useEffect } from "react";
 import dashboard from "../logos/dashboard.svg";
+import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 const Question1: React.FC = () => {
   const history = useHistory();
   const [count, setCount] = useState(0);
   const [result, setResult] = useState<number[]>([]);
   const [add, setAdd] = useState(-1);
+
+  const renderTime = ({ remainingTime }) => {
+    if (remainingTime === 0) {
+      return <div className="timer">Too lale...</div>;
+    }
+
+    return (
+      <div className="timer">
+        <div className="text">Remaining</div>
+        <div className="value">{remainingTime}</div>
+        <div className="text">seconds</div>
+      </div>
+    );
+  };
 
   const addHandler = (newVal) => setAdd((a) => (a === -1 ? newVal : a));
 
@@ -213,12 +228,6 @@ const Question1: React.FC = () => {
             alt="nextBtn"
             onClick={() => addHandler(5)}
           />
-          <img
-            className="emoji-btn"
-            src={six}
-            alt="nextBtn"
-            onClick={() => addHandler(6)}
-          />
         </div>
       </div>
     );
@@ -241,6 +250,16 @@ const Question1: React.FC = () => {
         <div className="question-title">{questions[count]}</div>
 
         {emojiDisplay}
+        <div className="timer-wrapper">
+          <CountdownCircleTimer
+            isPlaying
+            duration={5}
+            colors={"#444444"}
+            onComplete={() => [true, 1000]}
+          >
+            {renderTime}
+          </CountdownCircleTimer>
+        </div>
         {nextButton}
 
         <img
