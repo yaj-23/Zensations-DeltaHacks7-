@@ -118,6 +118,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   font-family: "Jua", sans-serif;
+  color: black;
 }
 
 .fat {
