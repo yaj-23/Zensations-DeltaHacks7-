@@ -7,8 +7,6 @@ export const router = express.Router({
   strict: true,
 });
 
-const test: number[] = [];
-
 router.put("/", (req: Request, res: Response) => {
-  res.status(200).json(controller.evaluate(test));
+  res.status(200).json(controller.evaluate(req.body.values));
 });

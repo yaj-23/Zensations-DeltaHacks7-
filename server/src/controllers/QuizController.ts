@@ -43,10 +43,12 @@ export class QuizController {
     }
   };
 
-
   private evaluateHealth: Evaluator = (value: number) => {
     this.happy += value;
     this.sad += 5 - value;
+    if (value < 3) {
+      this.angry += 2;
+    }
   };
 
   /**
@@ -57,9 +59,23 @@ export class QuizController {
     // clear values
     this.angry = this.sad = this.happy = 0;
 
-    const evaluators: Evaluator[] = [this.evaluateFeel, this.evaluateStress, this.evaluateFeel, this.evaluateHealth];
+    const round = (num: number) =>
+      Math.round((num + Number.EPSILON) * 100) / 100;
+
+    const evaluators: Evaluator[] = [
+      this.evaluateFeel,
+      this.evaluateStress,
+      this.evaluateFeel,
+      this.evaluateHealth,
+    ];
 
     values.forEach((value: number, index: number) => evaluators[index](value));
+
+    const maxValue = this.happy + this.sad + this.angry;
+
+    this.happy = round((this.happy / maxValue) * 100);
+    this.sad = round((this.sad / maxValue) * 100);
+    this.angry = round((this.angry / maxValue) * 100);
 
     return [this.happy, this.sad, this.angry];
   }
