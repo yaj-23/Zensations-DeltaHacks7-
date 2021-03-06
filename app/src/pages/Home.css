@@ -17,3 +17,25 @@
   width: 95%;
   height: auto;
 }
+
+.icon {
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  width: 100%;
+  align-self: top;
+}
+
+.green-background {
+  width: 30%;
+}
+.btns {
+  margin-top: 1em;
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+}
+.getStartedbtn {
+  justify-content: right;
+}
