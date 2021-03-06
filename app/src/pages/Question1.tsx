@@ -17,6 +17,7 @@ import happy from "../logos/sad.svg";
 import lovely from "../logos/lovely.svg";
 import { useHistory } from "react-router";
 import React, { useState } from 'react';
+import dashboard from "../logos/dashboard.svg";
 
 const Question1: React.FC = () => {
   const history = useHistory();
@@ -24,6 +25,26 @@ const Question1: React.FC = () => {
   const questions: String[] = ["how do you feel today?", "how stressed have you been lately", "descrive your day with one emoji:", "how anxious do you feel?"];
 
 
+  let nextButton;
+  if (count < 3){
+    nextButton = <div className="next-btns">
+    <img
+      className="next-button-background"
+      src={nextBtn}
+      alt="nextBtn"
+      onClick={() => {setCount(count + 1)}}
+    />
+  </div>
+  } else {
+    nextButton = <div className="next-btns">
+    <img
+      className="next-button-background"
+      src={dashboard}
+      alt="nextBtn"
+      onClick={() => {history.replace('/home/ClientState')}}
+    />
+  </div>
+  }
 
   return (
     <IonPage>
@@ -83,14 +104,8 @@ const Question1: React.FC = () => {
           />
         </div>
 
-        <div className="next-btns">
-          <img
-            className="next-button-background"
-            src={nextBtn}
-            alt="nextBtn"
-            onClick={() => {setCount(count + 1)}}
-          />
-        </div>
+
+        {nextButton}
 
         <img
           className="lotus"
@@ -98,6 +113,7 @@ const Question1: React.FC = () => {
           alt="lotus"
           onClick={() => history.replace("/home")}
         />
+
       </div>
     </IonPage>
   );
