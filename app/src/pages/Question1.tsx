@@ -1,11 +1,19 @@
 import {
   IonContent,
   IonHeader,
+  IonRadio,
+  IonRadioGroup,
   IonPage,
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
 import "./Question1.css";
+import one from "../logos/one.svg";
+import two from "../logos/two.svg";
+import three from "../logos/three.svg";
+import four from "../logos/four.svg";
+import five from "../logos/five.svg";
+import six from "../logos/six.svg";
 import lotus from "../logos/lotus.svg";
 import icon from "../logos/frameIcon.svg";
 import nextBtn from "../logos/nextButton.svg";
@@ -22,6 +30,7 @@ import dashboard from "../logos/dashboard.svg";
 const Question1: React.FC = () => {
   const history = useHistory();
   const [count, setCount] = useState(0);
+
   const questions: String[] = [
     "how do you feel today?",
     "how stressed have you been lately",
@@ -153,7 +162,51 @@ const Question1: React.FC = () => {
       </div>
     );
   } else {
-    emojiDisplay = "";
+    emojiDisplay = (
+      <div>
+        <div className="emoji-icon-row1">
+          <img
+            className="emoji-btn"
+            src={one}
+            alt="nextBtn"
+            onClick={() => console.log("You are sad")}
+          />
+          <img
+            className="emoji-btn"
+            src={two}
+            alt="nextBtn"
+            onClick={() => console.log("You are crying")}
+          />
+          <img
+            className="emoji-btn"
+            src={three}
+            alt="nextBtn"
+            onClick={() => console.log("You are irritated")}
+          />
+        </div>
+
+        <div className="emoji-icon-row2">
+          <img
+            className="emoji-btn"
+            src={four}
+            alt="nextBtn"
+            onClick={() => console.log("You are angry")}
+          />
+          <img
+            className="emoji-btn"
+            src={five}
+            alt="nextBtn"
+            onClick={() => console.log("You are happy")}
+          />
+          <img
+            className="emoji-btn"
+            src={six}
+            alt="nextBtn"
+            onClick={() => console.log("You are feeling lovely")}
+          />
+        </div>
+      </div>
+    );
   }
 
   return (
