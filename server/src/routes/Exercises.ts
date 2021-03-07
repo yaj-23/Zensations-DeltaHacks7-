@@ -8,7 +8,6 @@ export const router = express.Router({
 });
 
 // TODO: Add Exercise routes here
-
 router.get("/:id", async (req: Request, res: Response) => {
   res.status(200).json(await controller.getExercise(req.params.id));
 });
