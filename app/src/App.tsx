@@ -20,6 +20,7 @@ import ClientState from "./pages/ClientState";
 import Home from "./pages/Home";
 import Question1 from "./pages/Question1";
 import ExercisePage from "./pages/ExercisePage";
+import Exercise from "./pages/Exercise";
 /* Theme variables */
 import "./theme/variables.css";
 
@@ -40,6 +41,10 @@ const App: React.FC = () => (
 
           <Route exact path="/home/ExercisePage">
             <ExercisePage />
+          </Route>
+
+          <Route exact path="/home/Exercise">
+            <Exercise/>
           </Route>
           
           <Route exact path="/">

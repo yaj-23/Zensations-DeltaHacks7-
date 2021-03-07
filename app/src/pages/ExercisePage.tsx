@@ -43,7 +43,7 @@ const ExercisePage: React.FC = () => {
           <div className="card-left">
             <h4 className="step-desc">5. cobra 30s</h4>
           </div>
-          <img className="card-right-right"src={playIcon} alt='playIcon'/>
+          <img className="card-right-right"src={playIcon} alt='playIcon' onClick={() => history.replace("/home/Exercise")}/>
           
 
         
