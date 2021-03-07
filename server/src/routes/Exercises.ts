@@ -12,6 +12,10 @@ router.get("/:id", async (req: Request, res: Response) => {
 });
 
 // fixme DELETE AFTER
-router.post("/", async (req: Request, res: Response) => {
-  res.status(200).json(await controller.putExercise());
-})
+// router.post("/", async (req: Request, res: Response) => {
+//   res.status(200).json(await controller.putExercise());
+// });
+
+router.get("/", async (req: Request, res: Response) => {
+  res.status(200).json(await controller.getAllExercises());
+});
