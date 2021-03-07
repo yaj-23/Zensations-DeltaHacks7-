@@ -1,6 +1,6 @@
 # DeltaHacks7
 
-Link to devspost: https://devpost.com/software/zensations
+Link to Devpost submission: https://devpost.com/software/zensations
 
 ## Inspiration
 
