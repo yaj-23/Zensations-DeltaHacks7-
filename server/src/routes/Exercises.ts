@@ -18,5 +18,5 @@ router.get("/:id", async (req: Request, res: Response) => {
 // });
 
 router.get("/emotion/:emotion", async (req: Request, res: Response) => {
-  res.status(200).json(await controller.getAllExercises(req.params.emotion as EMOTION));
+  res.status(200).json(await controller.getAllExercises(req.params.emotion.toUpperCase() as EMOTION));
 });
