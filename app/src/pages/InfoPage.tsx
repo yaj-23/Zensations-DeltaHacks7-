@@ -1,26 +1,15 @@
 import { IonPage } from "@ionic/react";
 import { useHistory } from "react-router";
-
-import icon from "../logos/frameIcon.svg";
-import lotus from "../logos/lotus.svg";
-import playIcon from "../logos/playIcon.svg";
+import { useExercises } from "../components/ExerciseProvider";
 import card1 from "../logos/card1.svg";
 import card2 from "../logos/card2.svg";
-import { CountdownCircleTimer } from "react-countdown-circle-timer";
-
+import icon from "../logos/frameIcon.svg";
+import lotus from "../logos/lotus.svg";
 import "./InfoPage.css";
-import { Exercise, useExercises } from "../components/ExerciseProvider";
-import { useEffect } from "react";
 
 const InfoPage: React.FC = () => {
   const history = useHistory();
-  const { exercises, getExercises, setExercises } = useExercises();
-
-  useEffect(() => {
-    (async () => {
-      await getExercises();
-    })();
-  }, []);
+  const { exercises } = useExercises();
 
   return (
     <IonPage>
@@ -38,7 +27,7 @@ const InfoPage: React.FC = () => {
 
         <div className="info-heading">next steps</div>
         {exercises && exercises.length ? (
-          <div style={{fontFamily: 'Comic Neue'}}>
+          <div style={{ fontFamily: "Comic Neue" }}>
             Congrats on finishing the exercises!
           </div>
         ) : (
@@ -46,10 +35,13 @@ const InfoPage: React.FC = () => {
         )}
 
         <div className="card-rows">
-          <a href="https://www.heartandstroke.ca/" target="_blank" >
+          <a href="https://www.heartandstroke.ca/" target="_blank">
             <img className="info-card" src={card1} alt="card1" />
           </a>
-          <a target="_blank" href="https://www.heartandstroke.ca/stroke/signs-of-stroke/fast-signs-of-stroke-are-there-other-signs">
+          <a
+            target="_blank"
+            href="https://www.heartandstroke.ca/stroke/signs-of-stroke/fast-signs-of-stroke-are-there-other-signs"
+          >
             <img className="info-card" src={card2} alt="card2" />
           </a>
         </div>
