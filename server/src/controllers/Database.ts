@@ -7,6 +7,15 @@ pool.on("connect", () => {
   console.log("Connected!");
 });
 
+pool.on("acquire", () => {
+  console.log("acquire!");
+});
+
+pool.on("error", () => {
+  console.log("error!");
+});
+
+
 export const handler = async (query: string): Promise<any> => {
   return await pool.query(query).catch((err) => console.error(err));
 };
