@@ -10,6 +10,7 @@ import sad from "../logos/sad.svg";
 import angry from "../logos/angry.svg";
 import Typist from "react-typist";
 import "./ClientState.css";
+import { useExercises } from "../components/ExerciseProvider";
 
 const ClientState: React.FC = () => {
   const history = useHistory();
@@ -18,12 +19,19 @@ const ClientState: React.FC = () => {
   const [left, setLeft] = useState(0);
   const [middle, setMiddle] = useState(0);
   const [right, setRight] = useState(0);
+  const {setEmotion} = useExercises();
 
   const items: Record<string, string> = {
     0: happy,
     1: sad,
     2: angry,
   };
+
+  const emotions: Record<number, string> = {
+    0: "HAPPY",
+    1: "SAD",
+    2: "ANGRY"
+  }
 
   const backGround: Record<string, string> = {
     0: "#e6ffe6",
@@ -38,6 +46,7 @@ const ClientState: React.FC = () => {
     setLeft(lowestNum);
     setMiddle(middleNum);
     setRight([0, 1, 2].filter((f) => ![lowestNum, middleNum].includes(f))[0]);
+    setEmotion(emotions[middleNum]);
   };
 
   useEffect(() => {

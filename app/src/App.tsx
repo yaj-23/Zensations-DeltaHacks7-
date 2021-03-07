@@ -23,35 +23,38 @@ import ExercisePage from "./pages/ExercisePage";
 import Exercise from "./pages/Exercise";
 /* Theme variables */
 import "./theme/variables.css";
+import { ExerciseProvider } from "./components/ExerciseProvider";
 
 const App: React.FC = () => (
   <IonApp>
     <QuizProvider>
-      <IonReactRouter>
-        <IonRouterOutlet>
-          <Route exact path="/home">
-            <Home />
-          </Route>
-          <Route exact path="/home/Question1">
-            <Question1 />
-          </Route>
-          <Route exact path="/home/ClientState">
-            <ClientState />
-          </Route>
+      <ExerciseProvider>
+        <IonReactRouter>
+          <IonRouterOutlet>
+            <Route exact path="/home">
+              <Home />
+            </Route>
+            <Route exact path="/home/Question1">
+              <Question1 />
+            </Route>
+            <Route exact path="/home/ClientState">
+              <ClientState />
+            </Route>
 
-          <Route exact path="/home/ExercisePage">
-            <ExercisePage />
-          </Route>
+            <Route exact path="/home/ExercisePage">
+              <ExercisePage />
+            </Route>
 
-          <Route exact path="/home/Exercise">
-            <Exercise/>
-          </Route>
-          
-          <Route exact path="/">
-            <Redirect to="/home" />
-          </Route>
-        </IonRouterOutlet>
-      </IonReactRouter>
+            <Route exact path="/home/Exercise">
+              <Exercise />
+            </Route>
+
+            <Route exact path="/">
+              <Redirect to="/home" />
+            </Route>
+          </IonRouterOutlet>
+        </IonReactRouter>
+      </ExerciseProvider>
     </QuizProvider>
   </IonApp>
 );

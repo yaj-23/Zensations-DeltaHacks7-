@@ -7,9 +7,18 @@ import playIcon from "../logos/playIcon.svg";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 import "./ExercisePage.css";
+import { Exercise, useExercises } from "../components/ExerciseProvider";
+import { useEffect } from "react";
 
 const ExercisePage: React.FC = () => {
   const history = useHistory();
+  const { exercises, getExercises, setExercises } = useExercises();
+
+  useEffect(() => {
+    (async () => {
+      await getExercises();
+    })()
+  }, []);
 
   return (
     <IonPage>
@@ -25,24 +34,14 @@ const ExercisePage: React.FC = () => {
           </div>
         </div>
 
-        <div className="saying">here is a tailored workout</div>
+        <div className="saying tailored-workout">here is a tailored workout</div>
 
         <div className="steps">
-          <div className="card-left">
-            <h4 className="step-desc">1. bridge pose 30s</h4>
-          </div>
-          <div className="card-right">
-            <h4 className="step-desc">2. downward dog 30s</h4>
-          </div>
-          <div className="card-left">
-            <h4 className="step-desc">3. seated bend 30s</h4>
-          </div>
-          <div className="card-right">
-            <h4 className="step-desc">4. standing bend 30s</h4>
-          </div>
-          <div className="card-left">
-            <h4 className="step-desc">5. cobra 30s</h4>
-          </div>
+          {(exercises.length ? exercises : []).map((exercise: Exercise, index: number) => (
+            <div key={index} className={index % 2 ? "card-right" : "card-left"}>
+              <div className="step-desc">{index + 1}. {exercise.name.trim().slice(0, 28)}{exercise.name.length > 28 && "..."}</div><div className="step-desc">[30s]</div>
+            </div>
+          ))}
           <img
             className="card-right-right"
             src={playIcon}
@@ -55,7 +54,10 @@ const ExercisePage: React.FC = () => {
           className="lotus"
           src={lotus}
           alt="lotus"
-          onClick={() => history.replace("/home")}
+          onClick={() => {
+            setExercises([]);
+            history.replace("/home");
+          }}
         />
       </div>
     </IonPage>
