@@ -7,7 +7,11 @@ export const router = express.Router({
   strict: true,
 });
 
-// TODO: Add Exercise routes here
 router.get("/:id", async (req: Request, res: Response) => {
   res.status(200).json(await controller.getExercise(req.params.id));
 });
+
+// fixme DELETE AFTER
+router.post("/", async (req: Request, res: Response) => {
+  res.status(200).json(await controller.putExercise());
+})
