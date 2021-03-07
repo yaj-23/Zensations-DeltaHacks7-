@@ -49,8 +49,8 @@ const Question1: React.FC = () => {
 
   const questions: String[] = [
     "how do you feel today?",
-    "how stressed have you been lately",
-    "describe your day with one emoji:",
+    "how stressed have you been lately?",
+    "describe your day with one emoji",
     "how healthy are you?",
   ];
 
