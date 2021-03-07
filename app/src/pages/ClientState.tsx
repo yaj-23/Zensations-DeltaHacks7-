@@ -89,7 +89,7 @@ const ClientState: React.FC = () => {
             className="dash-button-background"
             src={release}
             alt="continueBtn"
-            onClick={() => {}}
+            onClick={() => history.replace("/home/ExercisePage")}
           />
         </div>
 
