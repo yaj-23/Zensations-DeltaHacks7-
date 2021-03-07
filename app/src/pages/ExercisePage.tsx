@@ -4,6 +4,7 @@ import { useHistory } from "react-router";
 import icon from "../logos/frameIcon.svg";
 import lotus from "../logos/lotus.svg";
 import playIcon from "../logos/playIcon.svg";
+import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 import "./ExercisePage.css";
 
@@ -17,16 +18,15 @@ const ExercisePage: React.FC = () => {
           <div className="appicon">
             <img className="green-background" src={icon} />
           </div>
-            
+
           <div className="title-header">
-            <div className="app-title-header">Zensation</div>
+            <div className="app-title-header">Zensations</div>
             <div className="app-slogan-header">release your emotions</div>
           </div>
         </div>
 
-       
         <div className="saying">here is a tailored workout</div>
-        
+
         <div className="steps">
           <div className="card-left">
             <h4 className="step-desc">1. bridge pose 30s</h4>
@@ -43,12 +43,13 @@ const ExercisePage: React.FC = () => {
           <div className="card-left">
             <h4 className="step-desc">5. cobra 30s</h4>
           </div>
-          <img className="card-right-right"src={playIcon} alt='playIcon' onClick={() => history.replace("/home/Exercise")}/>
-          
-
-        
+          <img
+            className="card-right-right"
+            src={playIcon}
+            alt="playIcon"
+            onClick={() => history.replace("/home/Exercise")}
+          />
         </div>
-        
 
         <img
           className="lotus"

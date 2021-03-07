@@ -60,7 +60,7 @@ const ClientState: React.FC = () => {
           </div>
 
           <div className="title-header">
-            <div className="app-title-header">Zensation</div>
+            <div className="app-title-header">Zensations</div>
             <div className="app-slogan-header">release your emotions</div>
           </div>
         </div>

@@ -25,7 +25,7 @@ const Home: React.FC = () => {
         </div>
 
         <div className="title">
-          <div className="app-title">Zensation</div>
+          <div className="app-title">Zensations</div>
           <div className="app-slogan">release your emotions</div>
         </div>
         <img src={lotus} alt="lotus" />
