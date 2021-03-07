@@ -25,7 +25,7 @@ const Home: React.FC = () => {
         </div>
 
         <div className="title">
-          <div className="app-title">Zensation</div>
+          <div className="app-title">Zensations</div>
           <div className="app-slogan">release your emotions</div>
         </div>
         <img src={lotus} alt="lotus" />
@@ -40,7 +40,7 @@ const Home: React.FC = () => {
             className="button-background"
             src={learnmoreBtn}
             alt="learnmoreBtn"
-            onClick={() => console.log("MOVE ME TO DEVPOST PAGE")}
+            onClick={() => history.push("/home/InfoPage")}
           />
         </div>
       </div>

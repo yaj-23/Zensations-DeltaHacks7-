@@ -8,3 +8,5 @@ export enum EMOTIONS {
   ZOMBIE = 6,
   TIRED = 7,
 }
+
+export type EMOTION = "ANGRY" | "SAD" | "HAPPY";

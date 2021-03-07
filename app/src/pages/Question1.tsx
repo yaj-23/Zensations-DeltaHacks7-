@@ -1,44 +1,37 @@
-import {
-  IonContent,
-  IonHeader,
-  IonRadio,
-  IonRadioGroup,
-  IonPage,
-  IonTitle,
-  IonToolbar,
-} from "@ionic/react";
-import "./Question1.css";
-import confused from "../logos/confused.svg";
-import board from "../logos/board.svg";
-import one from "../logos/one.svg";
-import two from "../logos/two.svg";
-import three from "../logos/three.svg";
-import four from "../logos/four.svg";
-import five from "../logos/five.svg";
-import six from "../logos/six.svg";
-import lotus from "../logos/lotus.svg";
-import icon from "../logos/frameIcon.svg";
-import nextBtn from "../logos/nextButton.svg";
-import sad from "../logos/sad.svg";
-import crying from "../logos/crying.svg";
-import irritated from "../logos/irritated.svg";
-import angry from "../logos/angry.svg";
-import happy from "../logos/sad.svg";
-import lovely from "../logos/lovely.svg";
+import { IonPage } from "@ionic/react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
-import React, { useState, useEffect } from "react";
+import Typist from "react-typist";
+import { useQuiz } from "../components/QuizProvider";
+import angry from "../logos/angry.svg";
+import board from "../logos/board.svg";
+import confused from "../logos/confused.svg";
+import crying from "../logos/crying.svg";
 import dashboard from "../logos/dashboard.svg";
-import { CountdownCircleTimer } from "react-countdown-circle-timer";
+import five from "../logos/five.svg";
+import four from "../logos/four.svg";
+import icon from "../logos/frameIcon.svg";
+import irritated from "../logos/irritated.svg";
+import lotus from "../logos/lotus.svg";
+import lovely from "../logos/lovely.svg";
+import nextBtn from "../logos/nextButton.svg";
+import one from "../logos/one.svg";
+import happy from "../logos/happy.svg";
+import sad from "../logos/sad.svg";
+import six from "../logos/six.svg";
+import three from "../logos/three.svg";
+import two from "../logos/two.svg";
+import "./Question1.css";
 
 const Question1: React.FC = () => {
   const history = useHistory();
   const [count, setCount] = useState(0);
-  const [result, setResult] = useState<number[]>([]);
+  const { result, setResult } = useQuiz();
   const [add, setAdd] = useState(-1);
 
-  const renderTime = ({ remainingTime }) => {
+  const renderTime = ({ remainingTime }: { remainingTime: number }) => {
     if (remainingTime === 0) {
-      return <div className="timer">Too lale...</div>;
+      return <div className="timer">Too late...</div>;
     }
 
     return (
@@ -48,16 +41,16 @@ const Question1: React.FC = () => {
     );
   };
 
-  const addHandler = (newVal) => setAdd((a) => (a === -1 ? newVal : a));
+  const addHandler = (newVal: number) => setAdd((a) => (a === -1 ? newVal : a));
 
   useEffect(() => {
-    if (add !== -1) setResult((res) => [...res, add]);
+    if (add !== -1) setResult((res: number[]) => [...res, add]);
   }, [add]);
 
   const questions: String[] = [
     "how do you feel today?",
-    "how stressed have you been lately",
-    "descrive your day with one emoji:",
+    "how stressed have you been lately?",
+    "describe your day with one emoji",
     "how healthy are you?",
   ];
 
@@ -87,7 +80,8 @@ const Question1: React.FC = () => {
           alt="nextBtn"
           onClick={() => {
             {
-              console.log(result);
+              setAdd(-1);
+              setCount(0);
               history.push("/home/ClientState");
             }
           }}
@@ -99,176 +93,84 @@ const Question1: React.FC = () => {
   let emojiDisplay;
   if (count == 0) {
     emojiDisplay = (
-      <div>
-        <div className="emoji-icon-row1">
-          <img
-            className="emoji-btn"
-            src={sad}
-            alt="nextBtn"
-            onClick={() => addHandler(1)}
-          />
-          <img
-            className="emoji-btn"
-            src={crying}
-            alt="nextBtn"
-            onClick={() => addHandler(0)}
-          />
-          <img
-            className="emoji-btn"
-            src={irritated}
-            alt="nextBtn"
-            onClick={() => addHandler(2)}
-          />
-        </div>
-
-        <div className="emoji-icon-row2">
-          <img
-            className="emoji-btn"
-            src={angry}
-            alt="nextBtn"
-            onClick={() => addHandler(3)}
-          />
-          <img
-            className="emoji-btn"
-            src={happy}
-            alt="nextBtn"
-            onClick={() => addHandler(4)}
-          />
-          <img
-            className="emoji-btn"
-            src={lovely}
-            alt="nextBtn"
-            onClick={() => addHandler(5)}
-          />
-        </div>
+      <div className="emoji-rows">
+        {[sad, crying, irritated, angry, happy, lovely].map(
+          (emoji: any, index: number) => (
+            <img
+              className="emoji-btn"
+              key={index}
+              src={emoji}
+              alt="nextBtn"
+              onClick={() => addHandler(index)}
+            />
+          )
+        )}
       </div>
     );
   } else if (count == 2) {
     emojiDisplay = (
-      <div>
-        <div className="emoji-icon-row1">
-          <img
-            className="emoji-btn"
-            src={sad}
-            alt="nextBtn"
-            onClick={() => addHandler(1)}
-          />
-          <img
-            className="emoji-btn"
-            src={crying}
-            alt="nextBtn"
-            onClick={() => addHandler(0)}
-          />
-          <img
-            className="emoji-btn"
-            src={confused}
-            alt="nextBtn"
-            onClick={() => addHandler(6)}
-          />
-        </div>
-
-        <div className="emoji-icon-row2">
-          <img
-            className="emoji-btn"
-            src={angry}
-            alt="nextBtn"
-            onClick={() => addHandler(3)}
-          />
-          <img
-            className="emoji-btn"
-            src={happy}
-            alt="nextBtn"
-            onClick={() => addHandler(4)}
-          />
-          <img
-            className="emoji-btn"
-            src={board}
-            alt="nextBtn"
-            onClick={() => addHandler(7)}
-          />
-        </div>
+      <div className="emoji-rows">
+        {[sad, crying, confused, angry, happy, board].map(
+          (emoji: any, index: number) => (
+            <img
+              className="emoji-btn"
+              key={index}
+              src={emoji}
+              alt="nextBtn"
+              onClick={() =>
+                addHandler(index === 2 ? 6 : index === 5 ? 7 : index)
+              }
+            />
+          )
+        )}
       </div>
     );
   } else {
     emojiDisplay = (
-      <div>
-        <div className="emoji-icon-row1">
+      <div className="emoji-rows">
+        {[one, two, three, four, five, six].map((emoji: any, index: number) => (
           <img
             className="emoji-btn"
-            src={one}
+            key={index}
+            src={emoji}
             alt="nextBtn"
-            onClick={() => addHandler(1)}
+            onClick={() => addHandler(index + 1)}
           />
-          <img
-            className="emoji-btn"
-            src={two}
-            alt="nextBtn"
-            onClick={() => addHandler(2)}
-          />
-          <img
-            className="emoji-btn"
-            src={three}
-            alt="nextBtn"
-            onClick={() => addHandler(3)}
-          />
-        </div>
-
-        <div className="emoji-icon-row2">
-          <img
-            className="emoji-btn"
-            src={four}
-            alt="nextBtn"
-            onClick={() => addHandler(4)}
-          />
-          <img
-            className="emoji-btn"
-            src={five}
-            alt="nextBtn"
-            onClick={() => addHandler(5)}
-          />
-        </div>
+        ))}
       </div>
     );
   }
 
   return (
     <IonPage>
-      <div className="mainScreen">
+      <div className="mainScreen questions-page">
         <div className="header">
           <div className="appicon">
             <img className="green-background" src={icon} />
           </div>
 
           <div className="title-header">
-            <div className="app-title-header">Zensation</div>
+            <div className="app-title-header">Zensations</div>
             <div className="app-slogan-header">release your emotions</div>
           </div>
         </div>
-
-        <div className="question-title">{questions[count]}</div>
+        <Typist key={count} className="question-title">
+          {questions[count]}
+        </Typist>
 
         {emojiDisplay}
-        <div className="timer-wrapper">
-          <CountdownCircleTimer
-            isPlaying
-            duration={10}
-            colors={[
-              ["#004777", 0.33],
-              ["#F7B801", 0.33],
-              ["#A30000", 0.33],
-            ]}
-            onComplete={() => [true, 1000]}
-          >
-            {renderTime}
-          </CountdownCircleTimer>
-        </div>
         {nextButton}
 
         <img
           className="lotus"
           src={lotus}
           alt="lotus"
-          onClick={() => history.replace("/home")}
+          onClick={() => {
+            setCount(0);
+            setAdd(-1);
+            setResult([]);
+            history.replace("/home");
+          }}
         />
       </div>
     </IonPage>
