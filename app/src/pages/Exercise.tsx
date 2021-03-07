@@ -7,18 +7,34 @@ import bridge from "../logos/bridge1.svg";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 import "./Exercise.css";
+import { useExercises } from "../components/ExerciseProvider";
+import playIcon from "../logos/playIcon.svg";
+import { useState } from "react";
 
 const Exercise: React.FC = () => {
   const history = useHistory();
+  const { exercises } = useExercises();
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const renderTime = ({ remainingTime }: { remainingTime: number }) => {
-    if (remainingTime === 0) {
-      return <div className="timer">Too late...</div>;
+    if (remainingTime === 0 || currentIndex > 4) {
+      return (
+        <div className="timer">
+          <img
+            className="card-right-right finish-button"
+            src={playIcon}
+            alt="playIcon"
+            onClick={() => history.replace("/home")}
+          />
+        </div>
+      );
     }
 
     return (
       <div className="timer">
+        <div className="text">Remaining</div>
         <div className="value">{remainingTime}</div>
+        <div className="text">seconds</div>
       </div>
     );
   };
@@ -37,25 +53,47 @@ const Exercise: React.FC = () => {
           </div>
         </div>
 
-        <div className="infoo">
-          <div className="card-auto">
-            <h4 className="step-desc">1. bridge pose 30s</h4>
+        {exercises.length && (
+          <div className="infoo">
+            <div className="card-left">
+              <div className="step-desc">
+                {currentIndex + 1}.{" "}
+                {exercises[currentIndex].name.trim().slice(0, 28)}
+                {exercises[currentIndex].name.length > 28 && "..."}
+              </div>
+              <div className="step-desc">[30s]</div>
+            </div>
+            <img
+              className="pic"
+              src={exercises[currentIndex].img}
+              alt="bridge"
+            />
+            <div className="level up">
+              Level: {exercises[currentIndex].level}
+            </div>
+            <div className="benefits up">
+              {exercises[currentIndex].benefits.map((benefit: string) => (
+                <div key={benefit}>&#8226; {benefit}</div>
+              ))}
+            </div>
           </div>
-          <img className="pic" src={bridge} alt="bridge" />
-          <div className="level up">Level: Insane</div>
-          <div className="benefits up">
-            <div>This is one benefit</div>
-            <div>This is another befnefit that is so long </div>
-            <div>This is last befnefit</div>
-          </div>
-        </div>
+        )}
 
         <div className="timer-wrapper">
           <CountdownCircleTimer
             isPlaying
-            duration={60}
-            colors={"#A30000"}
-            onComplete={() => [true, 1000]}
+            duration={1}
+            colors={[
+              ["#004777", 0.33],
+              ["#F7B801", 0.33],
+              ["#A30000", 0.33],
+            ]}
+            onComplete={() => {
+              if (currentIndex < 4) {
+                setCurrentIndex(currentIndex + 1);
+              }
+              return [currentIndex < 4, 10];
+            }}
           >
             {renderTime}
           </CountdownCircleTimer>

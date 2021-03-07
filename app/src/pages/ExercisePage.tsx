@@ -34,7 +34,7 @@ const ExercisePage: React.FC = () => {
           </div>
         </div>
 
-        <div className="saying tailored-workout">here is a tailored workout</div>
+        <div className="saying tailored-workout">here is your tailored workout</div>
 
         <div className="steps">
           {(exercises.length ? exercises : []).map((exercise: Exercise, index: number) => (

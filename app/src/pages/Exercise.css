@@ -55,7 +55,7 @@
 }
 
 #Exercise .timer {
-  font-family: "Montserrat";
+  font-family: "open sans";
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,13 +87,14 @@
   padding-top: 2rem;
 }
 .benefits {
-  text-align: center;
-  font-size: 1.2rem;
-  font-family: "jua";
+  font-size: 0.875rem;
+  font-family: "Comic Neue";
+  font-weight: 200;
 }
 
 .level {
-  font-family: "jua";
+  font-family: "Comic Neue";
+  font-weight: 500;
   font-size: 1.4rem;
 }
 .round-button {
@@ -110,4 +111,9 @@
   box-shadow: 0 0 3px gray;
   font-size: 20px;
   font-weight: bold;
+}
+
+
+.finish-button {
+  transform: scale(9);
 }

@@ -74,7 +74,7 @@ const ClientState: React.FC = () => {
           </div>
         </div>
 
-        <Typist className="dash-title"> You're Experiencing</Typist>
+        <Typist className="dash-title">You're Experiencing...</Typist>
 
         <div className="side">
           <div className="picandpercent">
