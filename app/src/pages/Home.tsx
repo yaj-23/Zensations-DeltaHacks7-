@@ -40,7 +40,7 @@ const Home: React.FC = () => {
             className="button-background"
             src={learnmoreBtn}
             alt="learnmoreBtn"
-            onClick={() => console.log("MOVE ME TO DEVPOST PAGE")}
+            onClick={() => history.push("/home/InfoPage")}
           />
         </div>
       </div>
