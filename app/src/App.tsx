@@ -21,6 +21,7 @@ import Home from "./pages/Home";
 import Question1 from "./pages/Question1";
 import ExercisePage from "./pages/ExercisePage";
 import Exercise from "./pages/Exercise";
+import InfoPage from "./pages/InfoPage";
 /* Theme variables */
 import "./theme/variables.css";
 import { ExerciseProvider } from "./components/ExerciseProvider";
@@ -47,6 +48,9 @@ const App: React.FC = () => (
 
             <Route exact path="/home/Exercise">
               <Exercise />
+            </Route>
+            <Route exact path="/home/InfoPage">
+              <InfoPage />
             </Route>
 
             <Route exact path="/">

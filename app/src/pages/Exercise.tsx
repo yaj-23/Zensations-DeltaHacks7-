@@ -24,7 +24,7 @@ const Exercise: React.FC = () => {
             className="card-right-right finish-button"
             src={playIcon}
             alt="playIcon"
-            onClick={() => history.replace("/home")}
+            onClick={() => history.replace("/home/InfoPage")}
           />
         </div>
       );
