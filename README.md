@@ -1,7 +1,6 @@
 # DeltaHacks7
 Link to devspots: https://devpost.com/software/zensations
 
-
 ## Inspiration
 
 Our main inspiration stems from hypertension being a major cause of premature death, reporting to show that fewer then 1 in 5 people suffering from hypertension have their situation under control (World Health Organization). 
@@ -21,8 +20,8 @@ The frontend was first wireframed and designed using **Figma**. We then transfer
 Our database of choice was none other than **Cockroachdb**, storing Yoga exercises, image URL's and a seperate table mapping Yoga positions with emotions (Angry, Sad, Happy, etc.) in order to improve the classification of exercises. 
 
 ## Challenges we ran into
-
-## Accomplishments that we're proud of
+Our first major problem with this project was configuring the setup of cockroachdb, and getting it to work alongside our project. Writing SQL queries was also a new experience for the entire team so we had to figuring out the syntax and some quirks.
+After we setup cockroach cloud we were unable to connect to it through our express server. Even the cockroachdb docs showed methods that did not work for us. We finally resolved this by referring to a stackoverflow post (of coursse!). 
 
 ## What we learned  
 > *this hackathon was filled with firsts*    
@@ -48,16 +47,3 @@ Our database of choice was none other than **Cockroachdb**, storing Yoga exercis
 ## What's next for Zensations
 
 Major future milestones we hope that could be extended upon the foundations of Zensations include creating custom profiles for users to sign up with. Alongside this, we would be able to monitor progress that seniors have made in terms of healthy living and emotional wellbeing. We would also like to be able to extend it into a more in depth way of checking users current health.
-
-
-
-
-#Images
-
-Figma:
-
-
-<img height="300" width="325" src="https://github.com/yaj-23/DeltaHacks7/blob/main/docs/figma.jpg" />
-
-
-Pictures of project:
