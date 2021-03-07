@@ -1,4 +1,5 @@
 import express, { Request, Response } from "express";
+import { EMOTION } from "../config/models";
 import { ExerciseController } from "../controllers/ExerciseController";
 
 const controller = new ExerciseController();
@@ -16,6 +17,6 @@ router.get("/:id", async (req: Request, res: Response) => {
 //   res.status(200).json(await controller.putExercise());
 // });
 
-router.get("/", async (req: Request, res: Response) => {
-  res.status(200).json(await controller.getAllExercises());
+router.get("/emotion/:emotion", async (req: Request, res: Response) => {
+  res.status(200).json(await controller.getAllExercises(req.params.emotion as EMOTION));
 });
